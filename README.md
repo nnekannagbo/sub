@@ -5,4 +5,6 @@
 
 ---
 
+A personal + expirimental exploration of sub-domains and link gardens using GitHub Pages
+
 License: This repository is BSD.
