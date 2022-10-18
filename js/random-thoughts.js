@@ -3,8 +3,10 @@ var titles = [
     'Sometimes laughter and agony sound the same',
     'thoughts are like loose leaves of paper',
     'I was thinking about freedom and form in my dream last night. Form was my body and freedom was my soul.',
-    'Just because you perceive it as so does not make it so.',
- 
+    'just cause you perceive it as so does not make it so.',
+    'Co-star told me to express my inner world more.',
+    'I make many lists'
+    //'the word wood at one point meant violently insane'
 ];
 
 function newTitle() {
