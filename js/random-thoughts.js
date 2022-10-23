@@ -6,7 +6,7 @@ var titles = [
     'just cause you perceive it as so does not make it so.',
     'Co-star told me to express my inner world more.',
     'I make many lists',
-    'are footnotes accessible to screen readers? what about an asterisk*?'
+    'are footnotes accessible to screen readers? what about an *asterisk?'
     //'the word wood at one point meant violently insane'
 ];
 
