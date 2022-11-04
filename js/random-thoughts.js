@@ -6,8 +6,9 @@ var titles = [
     'just cause you perceive it as so does not make it so.',
     'Co-star told me to express my inner world more.',
     'I make many lists',
-    'are footnotes accessible to screen readers? what about an *asterisk?'
-    //'the word wood at one point meant violently insane'
+    'are footnotes accessible to screen readers? what about an *asterisk? what about kaomoji ^_^?',
+    
+    //'the word wood at one point meant violently insane'kaomoji
 ];
 
 function newTitle() {
