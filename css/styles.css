@@ -1,0 +1,61 @@
+body {
+	font-family: "Times New Roman";
+	font-size: 40px;
+	font-weight: normal;
+	color: black;
+	line-height: 150%;
+}
+a.content:link {
+	color: MediumBlue;
+	text-decoration: none;
+}
+a.content:visited {
+	color: MediumBlue;
+	text-decoration: none;
+}
+a.content:hover {
+  	color: DarkBlue;
+	border-bottom: 1px solid DarkBlue;
+}
+a.content:active {
+  	color: black;
+	text-decoration: none;
+}
+#content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+}
+figcaption {
+  font-family: "Times New Roman";
+	font-size: 20px;
+	font-weight: normal;
+	color: black;
+	line-height: 150%;
+}
+
+
+/* Three image containers (use 25% for four, and 50% for two, etc) */
+.column {
+  float: left;
+  width: 50%;
+  padding: 5px;
+}
+
+/* Clear floats after image containers */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  padding: 5px;
+}
