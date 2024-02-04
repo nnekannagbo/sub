@@ -27,6 +27,15 @@
             top: 0; /* Stick the header to the top of the page */
         }
 
+        #a-header {
+            text-decoration: none;
+            color: #000;
+        }
+
+        #p-header {
+            padding: 5px;
+        }
+
         #game-container {
             width: 200px;
             height: 200px;
@@ -53,13 +62,15 @@
     </style>
 </head>
 <body>
-    <header><em>portal</em></header> <!-- Added header section -->
+    <header><p id="p-header"><a href="index.html" id="a-header" title="back to start"><em>portal</em></a></p></header> 
     <h1>level 1</h1>
     <div id="game-container">
         <div id="player"></div>
         <div class="collectible" id="collectible"></div>
     </div>
-    <p><a href="../game-map.html">(game map)</a></p>
+    <!-- <p><a href="../game-map.html">(game map)</a></p> -->
+    <p><a href="../game-map-text.html">(game map)</a></p>
+
 
     <script>
         const player = document.getElementById('player');

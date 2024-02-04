@@ -37,17 +37,21 @@
             background-color: lightblue;
             cursor: pointer;
         }
+
+        #p-header {
+            padding: 5px;
+        }
     </style>
 </head>
 <body>
 
-    <header><em>portal</em></header> <!-- Added header section -->
+    <header><p id="p-header"><em>portal</em></p></header> <!-- Added header section -->
     <button onclick="startGame()">start here</button>
 
     <script>
         function startGame() {
             // Redirect to the index page or game map
-            window.location.href = 'game-map.html'; // Change to the actual name of your index page
+            window.location.href = 'game-map-text.html'; // Change to the actual name of your index page
         }
     </script>
 </body>
