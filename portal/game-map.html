@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>map</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: #000;
+            transition: background-color 0.5s, color 0.5s;
+            background-color: #fff;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4em; /* Add margin to move the header to the top */
+            margin-top: 36px;
+            position: fixed;
+            top: 0; /* Stick the header to the top of the page */
+        }
+    
+            .map {
+                width: 600px;
+                height: 400px;
+                position: relative;
+                /* margin: 50px auto; */
+                background-color: green;
+                background-size: cover;
+                /* cursor: pointer; */
+            }
+    
+            .level {
+                width: 20px;
+                height: 20px;
+                background-color:khaki; /* Blue color for levels */
+                border-radius: 50%;
+                position: absolute;
+                text-align: center;
+            }
+    
+            /* Example level positions */
+            .level1 { left: 100px; top: 100px; }
+            .level2 { left: 300px; top: 250px; }
+            .level3 { left: 450px; top: 150px; }
+            .level4 { left: 400px; top: 100px; }
+            .level5 { left: 550px; top: 170px; }
+            .level6 { left: 500px; top: 300px; }
+            /* Add more level positions as needed */
+
+            /* Evening Mode Styles */
+         body.evening-mode {
+            background-color: #ffcc99; /* Warmer background color */
+            color: #663300; /* Warmer text color */
+        }
+
+        /* Night Mode Styles */
+        body.night-mode {
+            background-color: #111111; /* Dark background color */
+            color: #ffffff; /* Light text color */
+        }
+
+    </style>
+</head>
+<body>
+    <header><em>portal</em></header>
+    <h1>map</h1>
+
+    <!-- game map -->
+        <div class="map">
+            <!-- Clickable levels -->
+            <div class="level level1"><a href="level-1/">1</a></div>
+            <div class="level level2">2</div>
+            <div class="level level3">3</div>
+            <div class="level level4">4</div>
+            <div class="level level5">5</div>
+            <div class="level level6">6</div>
+    
+            <!-- Add more level divs as needed -->
+        </div>
+        <p><!--<a href="rules.html">(game rules)</a> -->::: <a href="game-map-text.html">(text map)</a>  :::<!-- <a href="index/index.html">(index)</a>--></p>
+
+         <!-- Add an audio element for the sound clip -->
+    <!-- <audio id="game-audio" src="game-audio.mp3" loop></audio>
+    <button id="audio-control">Toggle Sound</button>
+    <br> -->
+    
+    <button id="toggleMode" href="#">Evening</button>
+    <!-- whenever the page is toggled to a different time of day, it will reveal hidden text on page which they can either click on 
+        or it will reveal a message that provides furhter context to story -->
+        <!-- or whenever the button is clicked, different sounds will play on the page depending on which time of day it is on the page -->
+
+
+
+    <script>
+//         const gameAudio = document.getElementById('game-audio');
+// const audioControl = document.getElementById('audio-control');
+
+// audioControl.addEventListener('click', () => {
+//     if (gameAudio.paused) {
+//         gameAudio.play();
+//         audioControl.textContent = 'Pause Sound';
+//     } else {
+//         gameAudio.pause();
+//         audioControl.textContent = 'Play Sound';
+//     }
+// });
+
+// Time of day function starts here:
+
+document.addEventListener('DOMContentLoaded', function() {
+            const toggleButton = document.getElementById('toggleMode');
+            const body = document.body;
+            let currentMode = 'default'; // Initially set to default mode
+
+            toggleButton.addEventListener('click', function() {
+                if (currentMode === 'default') {
+                    body.classList.remove('evening-mode', 'night-mode');
+                    body.classList.add('evening-mode');
+                    toggleButton.textContent = 'Night';
+                    currentMode = 'evening';
+                } else if (currentMode === 'evening') {
+                    body.classList.remove('evening-mode', 'night-mode');
+                    body.classList.add('night-mode');
+                    toggleButton.textContent = 'Day';
+                    currentMode = 'night';
+                } else {
+                    body.classList.remove('evening-mode', 'night-mode');
+                    toggleButton.textContent = 'Eve';
+                    currentMode = 'default';
+                }
+            });
+        });
+
+    </script>
+</body>
+</html>

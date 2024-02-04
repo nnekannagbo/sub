@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radial Gradient with Stick Figure</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle, #ff6347, #00ced1, #ff69b4);
+        }
+
+        .stick-figure {
+            width: 100px;
+            height: 200px;
+            position: relative;
+        }
+
+        .stick-figure div {
+            position: absolute;
+        }
+
+        .head {
+            width: 50px;
+            height: 50px;
+            background-color: #ffd700;
+            border-radius: 50%;
+            top: 0;
+            left: 25px;
+        }
+
+        .body {
+            width: 10px;
+            height: 100px;
+            background-color: #ffd700;
+            top: 50px;
+            left: 20px;
+        }
+
+        .left-arm,
+        .right-arm {
+            width: 60px;
+            height: 10px;
+            background-color: #ffd700;
+            top: 50px;
+            left: -5px;
+        }
+
+        .left-arm {
+            transform: rotate(45deg);
+        }
+
+        .right-arm {
+            transform: rotate(-45deg);
+        }
+
+        .left-leg,
+        .right-leg {
+            width: 10px;
+            height: 80px;
+            background-color: #ffd700;
+            top: 100px;
+            left: 20px;
+        }
+
+        .left-leg {
+            transform: rotate(30deg);
+        }
+
+        .right-leg {
+            transform: rotate(-30deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="stick-figure">
+        <div class="head"></div>
+        <div class="body"></div>
+        <div class="left-arm"></div>
+        <div class="right-arm"></div>
+        <div class="left-leg"></div>
+        <div class="right-leg"></div>
+    </div>
+</body>
+</html>

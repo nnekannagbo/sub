@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Hyperlinks</title>
+    <script>
+        // Function to add hyperlinks to specified words
+        function addHyperlinks() {
+            // Get the element containing the text to be modified
+            const textContainer = document.getElementById('text-container');
+
+            // Words to be hyperlinked
+            const wordsToLink = ['example', 'words', 'page'];
+
+            // Iterate through words and add hyperlinks
+            wordsToLink.forEach(word => {
+                const regex = new RegExp('\\b' + word + '\\b', 'gi');
+                textContainer.innerHTML = textContainer.innerHTML.replace(regex, `<a href="#">${word}</a>`);
+            });
+        }
+
+        // Wait for 5 seconds before adding hyperlinks
+        setTimeout(addHyperlinks, 5000);
+    </script>
+</head>
+<body>
+    <div id="text-container">
+        <p>This is an example of words on the page.</p>
+    </div>
+</body>
+</html>

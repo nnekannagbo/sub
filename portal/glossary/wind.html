@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wind</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 4em; /* Add margin to move the header to the top */
+            margin-top: 36px;
+            position: fixed;
+            top: 0; /* Stick the header to the top of the page */
+        }
+
+            .map {
+                width: 600px;
+                height: 400px;
+                position: relative;
+                margin: 50px auto;
+                background-image: url('your_map_image.jpg'); /* Replace with your map image */
+                background-size: cover;
+                cursor: pointer;
+            }
+    
+            .level {
+                width: 20px;
+                height: 20px;
+                background-color: #0077be; /* Blue color for levels */
+                border-radius: 50%;
+                position: absolute;
+            }
+    
+            /* Example level positions */
+            .level1 { left: 100px; top: 100px; }
+            .level2 { left: 300px; top: 250px; }
+            .level3 { left: 450px; top: 150px; }
+    
+            /* Add more level positions as needed */
+
+    </style>
+</head>
+<body>
+    <header><em>portal</em></header> <!-- Added header section -->
+    <h1>wind</h1>
+
+    <video width="640" height="360" controls loop>
+        <source src="/assets/videos/index-wind-1.mp4" type="video/mp4">
+        Your browser does not support the video tag. <!-- displayed if the user's browser does not support HTML5 video -->
+    </video>
+
+    <p>a human figure stands in a field, staring down the scenery. waiting, watching, as bare trees line both sides. the sound and sight of cars pass by in the distance.</p>
+
+        <p><a href="../game-map.html">(game map)</a> ::: <a href="/index/">(index)</a></p>
+
+</body>
+</html>
