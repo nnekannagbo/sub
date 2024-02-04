@@ -16,12 +16,13 @@
 
         h1 {
             margin-bottom: 20px;
+            margin-top: 130px;
         }
-
+       
         header {
             font-size: 24px;
             font-weight: bold;
-            margin-bottom: 4em; /* Add margin to move the header to the top */
+            /* margin-bottom: 4em; */
             margin-top: 36px;
             position: fixed;
             top: 0; /* Stick the header to the top of the page */
@@ -59,10 +60,26 @@
             top: 100px;
             cursor: pointer;
         }
+
+        #mobile-warning {
+            display: none;
+            color: black;
+            font-size: 16px;
+            margin-top: 20px;
+            padding: 26px;
+            text-align: center;
+        }
+
+        /* Media query for screens smaller than 1024px */
+        @media (max-width: 1024px) {
+            #mobile-warning {
+                display: block;
+            }
+        }
     </style>
 </head>
 <body>
-    <header><p id="p-header"><a href="index.html" id="a-header" title="back to start"><em>portal</em></a></p></header> 
+    <header><p id="p-header"><a href="../index.html" id="a-header" title="back to start"><em>portal</em></a></p></header> 
     <h1>level 1</h1>
     <div id="game-container">
         <div id="player"></div>
@@ -70,7 +87,7 @@
     </div>
     <!-- <p><a href="../game-map.html">(game map)</a></p> -->
     <p><a href="../game-map-text.html">(game map)</a></p>
-
+    <p id="mobile-warning">Game not currently optimized for mobile. Need a keyboard to play.</p>
 
     <script>
         const player = document.getElementById('player');
@@ -119,6 +136,7 @@
             updatePlayerPosition();
             checkCollectibleCollision();
         });
+
 
         // Initial player position
         updatePlayerPosition();
