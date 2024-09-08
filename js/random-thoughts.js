@@ -1,11 +1,12 @@
 var target = document.getElementById("target");
 var titles = [
-  "Sometimes laughter and pain sound the same",
   "thoughts are like loose leaves of paper",
   "I was thinking about freedom and form in my dream last night. Form was my body and freedom was my soul.",
-  "just cause you perceive it as so does not make it so.",
   "Co-star told me to express my inner world more.",
-  "I make many lists",
+  "The cold makes you crazy the heat makes you lazy",
+  "The sound of kissing",
+  "Right now, I feel how I feel and we are where we are so it is what it is.",
+  "U･ᴥ･U",
   "Is kaomoji accessible to screen readers? Does a screen reader know that this is a face with asterisks for ears: *^_^*?",
 
   //'the word wood at one point meant violently insane'
