@@ -62,10 +62,3 @@ figcaption {
   padding: 5px;
 }
 
- /* Optional styling for the image */
- #randomImage {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: 20px auto;
-}
