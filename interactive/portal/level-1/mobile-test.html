@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 1</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #game-container {
+            width: 80vw;
+            height: 80vw;
+            max-width: 300px;
+            max-height: 300px;
+            background-color: lightblue;
+            position: relative;
+        }
+
+        #player, .collectible {
+            width: 10%;
+            padding-bottom: 10%;
+            background-color: red;
+            position: absolute;
+        }
+
+        .collectible {
+            background-color: yellow;
+            left: 70%;
+            top: 70%;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Level 1</h1>
+    <div id="game-container">
+        <div id="player"></div>
+        <div class="collectible" id="collectible"></div>
+    </div>
+    <p><a href="../game-map-text.html">(Game Map)</a></p>
+
+    <script>
+        const player = document.getElementById('player');
+        const gameContainer = document.getElementById('game-container');
+        const collectible = document.getElementById('collectible');
+        let playerX = 0;
+        let playerY = 0;
+        let initialX = null;
+        let initialY = null;
+
+        function checkCollectibleCollision() {
+            const playerRect = player.getBoundingClientRect();
+            const collectibleRect = collectible.getBoundingClientRect();
+
+            if (
+                playerRect.left < collectibleRect.right &&
+                playerRect.right > collectibleRect.left &&
+                playerRect.top < collectibleRect.bottom &&
+                playerRect.bottom > collectibleRect.top
+            ) {
+                window.location.href = 'poem-1.html';
+            }
+        }
+
+        function updatePlayerPosition() {
+            player.style.left = playerX + 'px';
+            player.style.top = playerY + 'px';
+        }
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'ArrowLeft' && playerX > 0) {
+                playerX -= 10;
+            } else if (event.key === 'ArrowRight' && playerX < gameContainer.clientWidth - player.clientWidth) {
+                playerX += 10;
+            } else if (event.key === 'ArrowUp' && playerY > 0) {
+                playerY -= 10;
+            } else if (event.key === 'ArrowDown' && playerY < gameContainer.clientHeight - player.clientHeight) {
+                playerY += 10;
+            }
+
+            updatePlayerPosition();
+            checkCollectibleCollision();
+        });
+
+        // Touch events
+        document.addEventListener('touchstart', handleTouchStart);
+        document.addEventListener('touchmove', handleTouchMove);
+
+        function handleTouchStart(event) {
+            const touch = event.touches[0];
+            initialX = touch.clientX;
+            initialY = touch.clientY;
+        }
+
+        function handleTouchMove(event) {
+            if (!initialX || !initialY) return;
+            const touch = event.touches[0];
+            const deltaX = touch.clientX - initialX;
+            const deltaY = touch.clientY - initialY;
+
+            playerX += deltaX;
+            playerY += deltaY;
+
+            updatePlayerPosition();
+            checkCollectibleCollision();
+
+            initialX = touch.clientX;
+            initialY = touch.clientY;
+        }
+
+        updatePlayerPosition();
+    </script>
+</body>
+</html>

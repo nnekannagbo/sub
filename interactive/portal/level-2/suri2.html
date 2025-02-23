@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smooth Animated Radial Gradient</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: radial-gradient(circle, #ff6347, #87ceeb, #7fff00);
+            transition: background 2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        // JavaScript to smoothly update the background colors
+        const colors = ['#ff6347', '#87ceeb', '#7fff00'];
+        let currentColorIndex = 0;
+
+        function updateBackgroundColor() {
+            document.body.style.background = `radial-gradient(circle, ${colors[currentColorIndex]}, ${colors[(currentColorIndex + 1) % colors.length]}, ${colors[(currentColorIndex + 2) % colors.length]})`;
+            currentColorIndex = (currentColorIndex + 1) % colors.length;
+        }
+
+        setInterval(updateBackgroundColor, 5000); // Change color every 5 seconds
+    </script>
+</body>
+</html>

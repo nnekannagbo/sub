@@ -30,6 +30,11 @@ a.content:active {
   margin-right: -50%;
   transform: translate(-50%, -50%)
 }
+
+.project-links p {
+  margin: 0px;
+}
+
 figcaption {
   font-family: "Times New Roman";
 	font-size: 20px;

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple HTML/CSS/JS Game</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        #game-container {
+            width: 200px;
+            height: 200px;
+            background-color: lightblue;
+            position: relative;
+        }
+
+        #player {
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            position: absolute;
+            z-index: 1; /* Set a higher z-index to make sure the player is above collectibles */
+        }
+
+        .collectible {
+            width: 20px;
+            height: 20px;
+            background-color: yellow;
+            position: absolute;
+            cursor: pointer;
+            z-index: 2; /* Set a higher z-index to make sure collectibles are above the player */
+        }
+
+        #game-text {
+            display: none;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>level 2</h1>
+    <div id="game-container">
+        <div id="player"></div>
+        <div class="collectible" id="collectible1" style="left: 50px; top: 50px;"></div>
+        <div class="collectible" id="collectible2" style="left: 100px; top: 100px;"></div>
+        <div class="collectible" id="collectible3" style="left: 150px; top: 150px;"></div>
+        <div class="collectible" id="collectible4" style="left: 50px; top: 50px; display: none;"></div>
+    </div>
+    <p><a href="../game-map.html">(game map)</a></p>
+
+    <!-- Add an audio element for the beep sound -->
+    <audio id="beep">
+        <source src="beep.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Add text that will appear after the 4th item is collected -->
+    <div id="game-text">
+        :::
+        <p><a href="../level-3/">move on</a></p>
+    </div>
+
+    <script>
+        const player = document.getElementById('player');
+        const gameContainer = document.getElementById('game-container');
+        const collectibles = document.querySelectorAll('.collectible'); // Get all collectibles
+        const beepSound = document.getElementById('beep'); // Get the audio element
+        const gameText = document.getElementById('game-text'); // Get the game text
+
+        // Initial position of the player
+        let playerX = 0;
+        let playerY = 0;
+
+        // Variable to track how many collectibles have been collected
+        let collectedCount = 0;
+
+        // Function to check if the player collected all items
+        function checkCollectiblesCollected() {
+            collectibles.forEach(collectible => {
+                const collectibleRect = collectible.getBoundingClientRect();
+                const playerRect = player.getBoundingClientRect();
+
+                if (
+                    collectible.style.display !== 'none' &&
+                    playerRect.left < collectibleRect.right &&
+                    playerRect.right > collectibleRect.left &&
+                    playerRect.top < collectibleRect.bottom &&
+                    playerRect.bottom > collectibleRect.top
+                ) {
+                    collectible.style.display = 'none'; // Hide the collected item
+                    collectedCount++;
+
+                    if (collectedCount === 3) {
+                        // All initial items collected, show and enable the 4th collectible
+                        const collectible4 = document.getElementById('collectible4');
+                        collectible4.style.display = 'block';
+                        // collectible4.addEventListener('mousedown', () => {
+                        //     // Show the game text
+                        //     gameText.style.display = 'block';
+                        // });
+                    }
+
+                    if (collectedCount === 4) {                       
+                            // Show the game text
+                            gameText.style.display = 'block';
+                    }
+                }
+            });
+        }
+
+        // Update the player's position
+        function updatePlayerPosition() {
+            player.style.left = playerX + 'px';
+            player.style.top = playerY + 'px';
+        }
+
+        // Event listener for keyboard input
+        document.addEventListener('keydown', (event) => {
+            // Arrow keys
+            if (event.key === 'ArrowLeft' && playerX > 0) {
+                playerX -= 10;
+            } else if (event.key === 'ArrowRight' && playerX < gameContainer.clientWidth - player.clientWidth) {
+                playerX += 10;
+            } else if (event.key === 'ArrowUp' && playerY > 0) {
+                playerY -= 10;
+            } else if (event.key === 'ArrowDown' && playerY < gameContainer.clientHeight - player.clientHeight) {
+                playerY += 10;
+            }
+
+            updatePlayerPosition();
+            checkCollectiblesCollected();
+
+            // Play the beep sound
+            beepSound.play();
+        });
+
+        // Initial player position
+        updatePlayerPosition();
+    </script>
+</body>
+</html>
