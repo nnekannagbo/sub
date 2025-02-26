@@ -21,10 +21,15 @@
        </style>
 </head>
 <body>
+    <!-- CODE NOTES TO READER 🙂 -->
+    <!-- The <a> tag has href="#" to prevent navigation.
+        The onclick="refreshPage()" triggers the refreshPage() function when clicked.
+        location.reload(); reloads the current page. -->
+
    <p>Instructions:</p>
     <ol>
         <li>one photo at a time.</li>
-        <li>refresh.</li>
+        <li><a href="#" onclick="refreshPage()">refresh</a>.</li>
     </ol>
 <!-- Random image showcase -->
 <img id="randomImage" alt="Randomly displayed image">
@@ -46,6 +51,10 @@
 
   // Set the image source on page load
   document.getElementById("randomImage").src = getRandomImage();
+
+  function refreshPage() {
+    location.reload();
+  }
 </script>
 </body>
 </html>
